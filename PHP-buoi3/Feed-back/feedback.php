@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     function validate_describe($describe,&$error)
     {
         global $validate;
-        if (strlen($describe) < 10){
+        if (strlen($describe) < 50){
             $error[] = 'Mô tả của bạn quá ngắn ';
             $validate = false;
         }
