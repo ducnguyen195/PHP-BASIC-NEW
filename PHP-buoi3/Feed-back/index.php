@@ -22,14 +22,14 @@
                 <span class="fa fa-user text-violet-800"></span>
                 Name :
             </label>
-                <input   class=" w-full p-1 border border-black" type="text" name="name" id="name">
+                <input   class=" w-full p-1 outline-none border border-black" type="text" name="name" id="name" required    >
         </div>
         <div>
             <label for="email">
                 <span class="fa fa-envelope text-violet-800"></span>
                 Email :
             </label>
-            <input  class=" w-full p-1 border border-black" type="email" name="email "  id="email">
+            <input  class=" w-full p-1 outline-none border border-black" type="email" name="email "  id="email" required>
         </div>
         <div class="col-span-2">
             <label for="type">
@@ -37,12 +37,12 @@
                 Feedback Type :
             </label>
             <label>
-                <select class=" w-full p-1 border border-black" name="select" >
+                <select class=" w-full p-1 outline-none border border-black" name="select" required >
                     <option value=""> Select</option>
-                    <option value=" Comments"  > Comments </option>
-                    <option value=" Bug Reports"> Bug Reports</option>
-                    <option value=" Questions"> Questions</option>
-                    <option value="Suggestions"> Suggestions</option>
+                    <option value=" Comments "  > Comments </option>
+                    <option value=" Bug Reports "> Bug Reports</option>
+                    <option value=" Questions "> Questions</option>
+                    <option value=" Suggestions "> Suggestions</option>
                 </select>
             </label>
         </div>
@@ -51,10 +51,10 @@
                 <span class="fa fa-comments text-violet-800"></span>
                 Describe Feedback :
             </label>
-            <input class=" w-full px-1 py-16 border border-black" type="text" name="describe" id="describe">
+            <textarea class=" w-full h-40 resize-none p-1 outline-none border border-black "  name="describe" id="describe" cols="30" rows="10" required></textarea>
         </div>
-        <div class=" col-span-2/3 flex justify-center bg-orange-600 hover:bg-blue-500">
-            <input  class=" text-2xl py-2 text-white" type="submit" name="submit">
+        <div class=" col-span-2/3 flex justify-center bg-orange-600 hover:bg-blue-500 cursor-pointer">
+            <input  class=" text-2xl py-2 text-white hover:cursor-pointer" type="submit" name="submit">
         </div>
     </form>
 </div>

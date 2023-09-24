@@ -6,7 +6,7 @@ $password = $_POST['password'];
 $phone = $_POST['phone'];
 $address = $_POST['address'];
 $date = $_POST['date'];
-$errol = [];
+$error = [];
 $is_validate = true;
 function validate_name($name, &$error)
 {
