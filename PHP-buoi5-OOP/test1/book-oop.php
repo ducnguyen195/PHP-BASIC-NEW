@@ -121,7 +121,7 @@ class Library
     {
         $searchAuthor = [];
         foreach ( $this->books as $book) {
-            if ($book->getAuthor == $author) {
+            if ($book->getAuthor() == $author) {
                 $searchAuthor[] = $book;
             }
         }
@@ -195,26 +195,21 @@ $book1 = new Book (1,"Chân đi hài lụa, cổ quấn hạt vàng",2000,"./img
 $book2 = new Book (2,"Ta trong ta",1999,"./img_1.png","Sách Văn Học","Đỗ Minh Tâm");
 $book3 = new Book (3,"Gấu Bobbi tô màu và dán hình",2005,"./vaaimg_2.png","Sách Thiếu Nhi","NXB Kim Đồng");
 
-echo "<pre>";
-print_r($book1);
-echo "</pre>";
-
 $user1 = new User(11,"Lò Văn A");
 $user2 = new User(22,"Thị Mão");
 $user3 = new User(33,"Nicolice Tèo");
 
 
 $liblary = new Library([]);
-$liblary->addBook($book1)->addBook($book2)->addBook($book3);
+$liblary->addBook($book1);
+$liblary->addBook($book2);
+$liblary->addBook($book3);
 $searchTilte ='Đỗ Minh Tâm';
 $liblary->searchBook(1);
-$liblary->searchByTitle("");
-$liblary->removeBook(2);
 
-
-$loan1 = new Loan($book1,$user1,14/8/2023);
-$loan2 = new Loan($book2,$user3,20/10/2023);
+$loan1 = new Loan($book1,$user1,'14/8/2023');
+$loan2 = new Loan($book2,$user3,'20/10/2023');
 echo "User: " . $loan1->getUser()->getFullName() . '<br>';
 echo "Book: " . $loan1->getBook()->getTitle() . '<br>';
-echo "Due date: " . $loan1->getDueDate() . '<br>';
+echo "Due Date: " . $loan1->getDueDate() . '<br>';
 
