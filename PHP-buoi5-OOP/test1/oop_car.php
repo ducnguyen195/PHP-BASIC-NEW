@@ -1,9 +1,9 @@
 <?php
 class Car {
-    public $name ;
-    public $numberPlate ;
-    public $owner ;
-    public $year;
+    private $name ;
+    private $numberPlate ;
+    private $owner ;
+    private $year;
 
     public function __construct($name,$numberPlate,$owner,$year)
     {

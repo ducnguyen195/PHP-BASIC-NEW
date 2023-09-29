@@ -26,78 +26,76 @@ class Book{
     $this->imageReview = $imageReview;
     $this->type = $type;
 }
-    //Geter
-    public function getId($id)
+    //Getter
+    public function getId()
     {
-        $this->id = $id;
+       return $this->id ;
     }
-    public function getTitle($title)
+    public function getTitle()
     {
-         $this->title = $title;
+        return $this->title;
     }
-    public function getAuthor($author)
+    public function getAuthor()
     {
-         $this->author = $author;
+        return $this->author ;
     }
-    public function getPublicationYear($publicationYear)
+    public function getPublicationYear()
     {
-        $this->publicationYear = $publicationYear;
+       return $this->publicationYear ;
     }
-    public function getImageReview($imageReview)
+    public function getImageReview()
     {
-        $this->imageReview = $imageReview;
+        return $this->imageReview ;
     }
-    public function getType($type)
+    public function getType()
     {
-        $this->type = $type;
+         return $this->type ;
     }
     //Setter
-    public function setId($id)
+    public function setId()
     {
-        $this->id = $id;
+        return $this->id ;
     }
     public function setTitle($title)
     {
-        $this->title = $title;
+       return $this->title =$title ;
     }
-    public function setAuthor($author)
+    public function setAuthor()
     {
-        $this->author = $author;
+       return $this->author;
     }
-    public function setPublicationYear($publicationYear)
+    public function setPublicationYear()
     {
-        $this->publicationYear = $publicationYear;
+       return $this->publicationYear ;
     }
-    public function setImageReview($imageReview)
+    public function setImageReview()
     {
-        $this->imageReview = $imageReview;
+        return $this->imageReview ;
     }
-    public function setType($type)
+    public function setType()
     {
-        $this->type = $type;
+        return $this->type ;
     }
-
 }
-class Libary
+class Library
 {
     private $books;
 
-    public function __contruct($books)
+    public function __construct($books)
     {
-        $this->books = $books;
+        $this->books = [];
     }
-
-    public function getBooks($books)
+    public function getBooks()
     {
         return $this->books;
     }
-    public function setBooks($books)
+    public function setBooks()
     {
         return $this->books;
     }
     public function addBook($book)
     {
-        $this->books[] =$book;
+       return $this->books[] =$book;
     }
     public function searchBook($id)
     {
@@ -110,18 +108,113 @@ class Libary
         }
     public function searchByTitle($title)
     {
+        global $book;
+        $searchTitle = [];
+        for ($i = 0; $i < count($this->books); $i++) {
+            if ($book->getTitle() == $title){
+                $searchTitle[] = $book;
+            }
+        }
+        return $searchTitle;
+    }
+    public function searchByAuthor($author)
+    {
+        $searchAuthor = [];
+        foreach ( $this->books as $book) {
+            if ($book->getAuthor == $author) {
+                $searchAuthor[] = $book;
+            }
+        }
+        return $searchAuthor;
+    }
+    public function removeBook($title)
+    {
+
+    }
+    public function searchBookById($id) {
         $index = -1;
         for ($i = 0; $i < count($this->books); $i++)
-            if ($this->books[$i]-$title == $title) {
-                 return $index;
+            if ($this->books[$i]-$id == $id) {
+                return $index;
             }
-        return  $index;
-    }
-    public function removeBook($book,$index)
-    {
-        if ($index != -1) {
-            $this->books = array_splice($this->books,$index,1);
-        }
+        return $index;
     }
 
 }
+class  User {
+    private $id;
+    private $fullName;
+
+
+    public function __construct($id,$fullName)
+    {
+        $this->id = $id;
+        $this->fullName =$fullName;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+    public function getFullName()
+    {
+        return $this->fullName;
+    }
+}
+
+class Loan{
+    private $user;
+    private $book;
+    private $dueDate;
+
+    public function __construct($book,$user,$dueDate)
+    {
+        $this->user = $user;
+        $this->book = $book;
+        $this->dueDate = $dueDate;
+
+    }
+
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    public function getBook()
+    {
+        return $this->book;
+    }
+
+    public function getDueDate()
+    {
+        return $this->dueDate;
+    }
+}
+
+$book1 = new Book (1,"Chân đi hài lụa, cổ quấn hạt vàng",2000,"./img.png","Sách Văn Học","Kỳ Nam Uyên");
+$book2 = new Book (2,"Ta trong ta",1999,"./img_1.png","Sách Văn Học","Đỗ Minh Tâm");
+$book3 = new Book (3,"Gấu Bobbi tô màu và dán hình",2005,"./vaaimg_2.png","Sách Thiếu Nhi","NXB Kim Đồng");
+
+echo "<pre>";
+print_r($book1);
+echo "</pre>";
+
+$user1 = new User(11,"Lò Văn A");
+$user2 = new User(22,"Thị Mão");
+$user3 = new User(33,"Nicolice Tèo");
+
+
+$liblary = new Library([]);
+$liblary->addBook($book1)->addBook($book2)->addBook($book3);
+$searchTilte ='Đỗ Minh Tâm';
+$liblary->searchBook(1);
+$liblary->searchByTitle("");
+$liblary->removeBook(2);
+
+
+$loan1 = new Loan($book1,$user1,14/8/2023);
+$loan2 = new Loan($book2,$user3,20/10/2023);
+echo "User: " . $loan1->getUser()->getFullName() . '<br>';
+echo "Book: " . $loan1->getBook()->getTitle() . '<br>';
+echo "Due date: " . $loan1->getDueDate() . '<br>';
+
