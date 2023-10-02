@@ -76,6 +76,11 @@ class Book{
     {
         return $this->type ;
     }
+    public function printBookInfor () {
+        echo "Tiêu đề: {$this->title}".'<br>';
+        echo "Tác giả: {$this->author}".'<br>';
+        echo "Năm xuất bản: {$this->publicationYear}".'<br>';
+    }
 }
 class Library
 {
@@ -139,7 +144,6 @@ class Library
             }
         return $index;
     }
-
 }
 class  User {
     private $id;
@@ -161,7 +165,6 @@ class  User {
         return $this->fullName;
     }
 }
-
 class Loan{
     private $user;
     private $book;
@@ -190,6 +193,54 @@ class Loan{
         return $this->dueDate;
     }
 }
+class PaperBook extends  Book {
+    public $weight;
+    public function __construct($id, $title, $publicationYear, $imageReview, $type, $author, $weight)
+    {
+        parent::__construct($id, $title, $publicationYear, $imageReview, $type, $author);
+        $this->weight = $weight;
+    }
+
+    public function getPaperBook()
+    {
+        return $this->weight;
+    }
+
+    public function setPaperBook ($weight)
+    {
+        $this->weight = $weight;
+    }
+
+    public function printBookInfor ()
+    {
+        parent::printBookInfor();
+        echo "Trọng lượng: {$this->weight} kg".'<br>';
+    }
+
+
+}
+class EBook extends Book {
+    private $size;
+
+    public function __construct($id, $title, $publicationYear, $imageReview, $type, $author, $size)
+    {
+        parent::__construct($id, $title, $publicationYear, $imageReview, $type,$author);
+        $this->size = $size;
+    }
+    public function printBookInfor ()
+    {
+        parent::printBookInfor();
+        echo "Dung lượng tệp: {$this->size} MB ".'<br>';
+    }
+    public function getSize()
+    {
+        return $this->size;
+    }
+    public function setSize($size)
+    {
+        $this->size = $size;
+    }
+}
 
 $book1 = new Book (1,"Chân đi hài lụa, cổ quấn hạt vàng",2000,"./img.png","Sách Văn Học","Kỳ Nam Uyên");
 $book2 = new Book (2,"Ta trong ta",1999,"./img_1.png","Sách Văn Học","Đỗ Minh Tâm");
@@ -207,9 +258,11 @@ $liblary->addBook($book3);
 $searchTilte ='Đỗ Minh Tâm';
 $liblary->searchBook(1);
 
-$loan1 = new Loan($book1,$user1,'14/8/2023');
+$loan1 = new Loan($book1,$user2,'14/8/2023');
 $loan2 = new Loan($book2,$user3,'20/10/2023');
-echo "User: " . $loan1->getUser()->getFullName() . '<br>';
-echo "Book: " . $loan1->getBook()->getTitle() . '<br>';
-echo "Due Date: " . $loan1->getDueDate() . '<br>';
+//echo "User: " . $loan1->getUser()->getFullName() . '<br>';
+//echo "Book: " . $loan1->getBook()->getTitle() . '<br>';
+//echo "Due Date: " . $loan1->getDueDate() . '<br>';
 
+$EBook = new EBook (1,"Chân đi hài lụa, cổ quấn hạt vàng",2000,"./img.png","Sách Văn Học","Kỳ Nam Uyên","100");
+$EBook->printBookInfor();
