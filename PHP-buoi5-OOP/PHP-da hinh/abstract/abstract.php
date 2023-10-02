@@ -23,22 +23,20 @@ class Circle extends Shape {
     }
 }
 class Square extends Shape {
-    public  $length;
     public  $width;
 
-    public function __construct($name,$length,$width)
+    public function __construct($name,$width)
     {
         parent::__construct($name);
-        $this->length = $length;
         $this->width = $width;
     }
     public function calculateArea()
     {
-        return $this->width* $this->length;
+        return $this->width* $this->width;
     }
 }
 $circle = new Circle('a',4);
-$square = new Square('b',5,5);
+$square = new Square('a',5);
 echo $circle->calculateArea().'<br>';
 echo $square->calculateArea().'<br>';
 
