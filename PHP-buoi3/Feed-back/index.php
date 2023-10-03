@@ -56,7 +56,7 @@
             </div>
         </div>
        <div class="flex justify-center">
-           <div class=" w-1/2 flex justify-center bg-orange-600 hover:bg-blue-500 cursor-pointer">
+           <div class=" w-1/3 flex justify-center bg-orange-600 hover:bg-blue-500 cursor-pointer">
                <input  class=" text-2xl py-2 text-white hover:cursor-pointer" type="submit" name="submit">
            </div>
        </div>
