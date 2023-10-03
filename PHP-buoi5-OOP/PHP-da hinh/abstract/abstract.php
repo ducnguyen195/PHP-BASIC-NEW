@@ -32,7 +32,7 @@ class Square extends Shape {
     }
     public function calculateArea()
     {
-        return $this->width* $this->width;
+        return $this->width * $this->width;
     }
 }
 $circle = new Circle('a',4);

@@ -16,46 +16,50 @@
     <h1 class=" my-14 text-slate-50 text-6xl"> FeedBack Form</h1>
 </div>
 <div class=" w-1/2 h-[30rem] m-auto  bg-cover bg-center bg-[url('./img/back.jpg')] ">
-    <form class="p-12 grid grid-cols-2 gap-4 " action="feedback.php" method="POST">
-        <div>
-            <label for="name">
-                <span class="fa fa-user text-violet-800"></span>
-                Name :
-            </label>
+    <form class="p-12  " action="feedback.php" method="POST">
+        <div class="grid grid-cols-2 gap-4">
+            <div>
+                <label for="name">
+                    <span class="fa fa-user text-violet-800"></span>
+                    Name :
+                </label>
                 <input   class=" w-full p-1 outline-none border border-black" type="text" name="name" id="name" required    >
+            </div>
+            <div>
+                <label for="email">
+                    <span class="fa fa-envelope text-violet-800"></span>
+                    Email :
+                </label>
+                <input  class=" w-full p-1 outline-none border border-black" type="email" name="email "  id="email" required>
+            </div>
+            <div class="col-span-2">
+                <label for="type">
+                    <span class="fa fa-comments text-violet-800"></span>
+                    Feedback Type :
+                </label>
+                <label>
+                    <select class=" w-full p-1 outline-none border border-black" name="select" required >
+                        <option value=""> Select</option>
+                        <option value=" Comments "  > Comments </option>
+                        <option value=" Bug Reports "> Bug Reports</option>
+                        <option value=" Questions "> Questions</option>
+                        <option value=" Suggestions "> Suggestions</option>
+                    </select>
+                </label>
+            </div>
+            <div class=" col-span-2">
+                <label for="describe">
+                    <span class="fa fa-comments text-violet-800"></span>
+                    Describe Feedback :
+                </label>
+                <textarea class=" w-full h-40 resize-none p-1 outline-none border border-black "  name="describe" id="describe" cols="30" rows="10" required></textarea>
+            </div>
         </div>
-        <div>
-            <label for="email">
-                <span class="fa fa-envelope text-violet-800"></span>
-                Email :
-            </label>
-            <input  class=" w-full p-1 outline-none border border-black" type="email" name="email "  id="email" required>
-        </div>
-        <div class="col-span-2">
-            <label for="type">
-                <span class="fa fa-comments text-violet-800"></span>
-                Feedback Type :
-            </label>
-            <label>
-                <select class=" w-full p-1 outline-none border border-black" name="select" required >
-                    <option value=""> Select</option>
-                    <option value=" Comments "  > Comments </option>
-                    <option value=" Bug Reports "> Bug Reports</option>
-                    <option value=" Questions "> Questions</option>
-                    <option value=" Suggestions "> Suggestions</option>
-                </select>
-            </label>
-        </div>
-        <div class=" col-span-2">
-            <label for="describe">
-                <span class="fa fa-comments text-violet-800"></span>
-                Describe Feedback :
-            </label>
-            <textarea class=" w-full h-40 resize-none p-1 outline-none border border-black "  name="describe" id="describe" cols="30" rows="10" required></textarea>
-        </div>
-        <div class=" col-span-2/3 flex justify-center bg-orange-600 hover:bg-blue-500 cursor-pointer">
-            <input  class=" text-2xl py-2 text-white hover:cursor-pointer" type="submit" name="submit">
-        </div>
+       <div class="flex justify-center">
+           <div class=" w-1/2 flex justify-center bg-orange-600 hover:bg-blue-500 cursor-pointer">
+               <input  class=" text-2xl py-2 text-white hover:cursor-pointer" type="submit" name="submit">
+           </div>
+       </div>
     </form>
 </div>
 
